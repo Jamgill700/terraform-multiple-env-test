@@ -23,7 +23,6 @@ resource "azuread_application" "multiple_env" {
 
 resource "azuread_service_principal" "multiple_env_service_principal" {
   client_id = azuread_application.multiple_env.client_id
-#   client_id = var.fed_cred_client_id
 }
 
 # Creates a role assignment which controls the permissions the service

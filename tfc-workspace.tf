@@ -17,18 +17,18 @@ data "tfe_project" "tfc_project" {
 # to Azure with the permissions set in the Azure policy.
 #
 # https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
-# resource "tfe_workspace" "my_workspace" {
-#   name         = var.tfc_workspace_name
-#   organization = var.tfc_organization_name
-#   project_id   = data.tfe_project.tfc_project.id
-# }
+resource "tfe_workspace" "my_workspace" {
+  name         = var.tfc_workspace_name
+  organization = var.tfc_organization_name
+  project_id   = data.tfe_project.tfc_project.id
+}
 
 # The following variables must be set to allow runs
 # to authenticate to Azure.
 #
 # https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
 resource "tfe_variable" "enable_azure_provider_auth" {
-  workspace_id = var.tfe_test_workspace_id
+  workspace_id = tfe_workspace.my_workspace.id
 
   key      = "TFC_AZURE_PROVIDER_AUTH"
   value    = "true"
@@ -38,7 +38,7 @@ resource "tfe_variable" "enable_azure_provider_auth" {
 }
 
 resource "tfe_variable" "tfc_azure_client_id" {
-  workspace_id = var.tfe_test_workspace_id
+  workspace_id = tfe_workspace.my_workspace.id
 
   key      = "TFC_AZURE_RUN_CLIENT_ID"
   value    = azuread_application.multiple_env.client_id
