@@ -5,6 +5,8 @@ provider "azurerm" {
   use_oidc = true
   subscription_id = var.subscription_id
   tenant_id       = var.tenant_id
+  client_id       = var.oidc_client_id
+  client_secret   = var.oidc_client_secret
 }
 
 provider "azuread" {
