@@ -1,14 +1,15 @@
 provider "azurerm" {
-  skip_provider_registration = false # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
+#   skip_provider_registration = false # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
   features {}
   use_cli  = false
   use_oidc = true
+  subscription_id = var.subscription_id
 }
 
 provider "azuread" {
-    tenant_id = var.tenant_id
-    client_id = var.oidc_client_id
-    client_secret = var.oidc_client_secret
+    tenant_id       = var.tenant_id
+    client_id       = var.oidc_client_id
+    client_secret   = var.oidc_client_secret
 }
 
 data "azurerm_subscription" "current" {}
