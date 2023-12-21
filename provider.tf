@@ -21,20 +21,20 @@ data "azurerm_subscription" "current" {}
 #   display_name = "multiple-env-${var.environment}"
 # }
 
-resource "azuread_service_principal" "multiple_env_service_principal" {
-#   application_id = azuread_application.multiple_env.application_id
-  client_id = var.fed_cred_client_id
-}
+# resource "azuread_service_principal" "multiple_env_service_principal" {
+# #   application_id = azuread_application.multiple_env.application_id
+#   client_id = var.fed_cred_client_id
+# }
 
 # Creates a role assignment which controls the permissions the service
 # principal has within the Azure subscription.
 #
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment
-resource "azurerm_role_assignment" "tfc_role_assignment" {
-  scope                = data.azurerm_subscription.current.id
-  principal_id         = azuread_service_principal.multiple_env_service_principal.object_id
-  role_definition_name = "Contributor"
-}
+# resource "azurerm_role_assignment" "tfc_role_assignment" {
+#   scope                = data.azurerm_subscription.current.id
+#   principal_id         = azuread_service_principal.multiple_env_service_principal.object_id
+#   role_definition_name = "Contributor"
+# }
 
 resource "azuread_application_federated_identity_credential" "tfc_federated_credential_plan" {
   application_object_id = var.fed_cred_object_id
