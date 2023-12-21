@@ -5,7 +5,9 @@ provider "azurerm" {
   use_oidc = true
 }
 
-provider "azuread" {}
+provider "azuread" {
+    tenant_id = var.tenant_id
+}
 
 data "azurerm_subscription" "current" {}
 
