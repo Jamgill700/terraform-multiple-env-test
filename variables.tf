@@ -22,5 +22,8 @@ variable "tfc_project_name" {
 variable "tfc_workspace_name" {}
 variable "oidc_client_id" {}
 variable "oidc_client_secret" {}
+variable "TFE_TOKEN" {
+  
+}
 # variable "fed_cred_client_id" {}
 # variable "fed_cred_object_id" {}
