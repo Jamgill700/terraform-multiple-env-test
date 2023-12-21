@@ -17,11 +17,11 @@ data "tfe_project" "tfc_project_prod" {
 # to Azure with the permissions set in the Azure policy.
 #
 # https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
-resource "tfe_workspace" "my_workspace" {
-  name         = var.tfc_workspace_name
-  organization = var.tfc_organization_name
-  project_id   = data.tfe_project.tfc_project_prod.id
-}
+# resource "tfe_workspace" "my_workspace" {
+#   name         = var.tfc_workspace_name
+#   organization = var.tfc_organization_name
+#   project_id   = data.tfe_project.tfc_project_prod.id
+# }
 
 # The following variables must be set to allow runs
 # to authenticate to Azure.
