@@ -1,12 +1,16 @@
-terraform {
+terraform{
+  cloud {
+    organization = var.tfc_organization_name
+
+    workspaces {
+      name = var.tfc_workspace_name
+    }
+  }
+
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~>3.0"
+      source = "hashicorp/azurerm"
+      version = "3.52.0"
     }
-    # random = {
-    #   source  = "hashicorp/random"
-    #   version = "~>3.0"
-    # }
   }
-}
+} 
