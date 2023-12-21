@@ -7,6 +7,8 @@ provider "azurerm" {
 
 provider "azuread" {
     tenant_id = var.tenant_id
+    client_id = var.oidc_client_id
+    client_secret = var.oidc_client_secret
 }
 
 data "azurerm_subscription" "current" {}
