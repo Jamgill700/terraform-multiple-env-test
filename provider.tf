@@ -28,15 +28,15 @@ resource "azurerm_role_assignment" "tfc_role_assignment" {
 
 resource "azuread_application_federated_identity_credential" "tfc_federated_credential_plan" {
   application_object_id = azuread_application.multiple_env.object_id
-  display_name          = "multiple-env-${environment}-plan"
+  display_name          = "multiple-env-${var.environment}-plan"
   audiences             = [var.tfc_azure_audience]
   issuer                = "https://${var.tfc_hostname}"
   subject               = "organization:${var.tfc_organization_name}:project:${var.tfc_project_name}:workspace:${var.tfc_workspace_name}:run_phase:plan"
 }
 
 resource "azuread_application_federated_identity_credential" "tfc_federated_credential_apply" {
-  application_object_id = azuread_application.tfc_application.object_id
-  display_name          = "multiple-env-${environment}-apply"
+  application_object_id = azuread_application.multiple_env.object_id
+  display_name          = "multiple-env-${var.environment}-apply"
   audiences             = [var.tfc_azure_audience]
   issuer                = "https://${var.tfc_hostname}"
   subject               = "organization:${var.tfc_organization_name}:project:${var.tfc_project_name}:workspace:${var.tfc_workspace_name}:run_phase:apply"
