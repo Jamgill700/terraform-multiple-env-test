@@ -28,7 +28,7 @@ data "tfe_project" "tfc_project_prod" {
 #
 # https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
 resource "tfe_variable" "enable_azure_provider_auth" {
-  workspace_id = tfe_workspace.my_workspace.id
+  workspace_id = var.tfe_workspace_id
 
   key      = "TFC_AZURE_PROVIDER_AUTH"
   value    = "true"
@@ -38,7 +38,7 @@ resource "tfe_variable" "enable_azure_provider_auth" {
 }
 
 resource "tfe_variable" "tfc_azure_client_id" {
-  workspace_id = tfe_workspace.my_workspace.id
+  workspace_id = var.tfe_workspace_id
 
   key      = "TFC_AZURE_RUN_CLIENT_ID"
   value    = azuread_application.multiple_env.client_id
