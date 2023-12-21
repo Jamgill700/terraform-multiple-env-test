@@ -16,11 +16,12 @@ variable "tfc_organization_name" {
 }
 
 variable "tfc_project_name" {
-  default = "Default Project"
+  default = "test"
 }
 
 variable "tfc_workspace_name" {}
 variable "oidc_client_id" {}
 variable "oidc_client_secret" {}
-variable "fed_cred_client_id" {}
-variable "fed_cred_object_id" {}
+# variable "fed_cred_client_id" {}
+# variable "fed_cred_object_id" {}
+variable "tfe_workspace_id" {}
