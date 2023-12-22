@@ -1,6 +1,6 @@
 # Create a resource group
 resource "azurerm_resource_group" "multiple_env" {
-  name     = "multiple-env"
+  name     = "multiple-env-${var.environment}"
   location = var.location
 }
 
