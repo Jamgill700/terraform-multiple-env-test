@@ -1,6 +1,5 @@
 variable "subscription_id" {}
 variable "location" {}
-variable "location_short_name" {}
 variable "environment" {}
 
 variable "tenant_id" {}
