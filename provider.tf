@@ -23,7 +23,6 @@ resource "azuread_application" "multiple_env" {
 
 resource "azuread_service_principal" "multiple_env_service_principal" {
   application_id = azuread_application.multiple_env.application_id
-#   client_id = var.fed_cred_client_id
 }
 
 # Creates a role assignment which controls the permissions the service
@@ -37,7 +36,6 @@ resource "azurerm_role_assignment" "tfc_role_assignment" {
 }
 
 resource "azuread_application_federated_identity_credential" "tfc_federated_credential_plan" {
-#   application_object_id = var.fed_cred_object_id
   application_object_id = azuread_application.multiple_env.object_id
   display_name          = "multiple-env-${var.environment}-plan"
   audiences             = [var.tfc_azure_audience]
@@ -46,7 +44,6 @@ resource "azuread_application_federated_identity_credential" "tfc_federated_cred
 }
 
 resource "azuread_application_federated_identity_credential" "tfc_federated_credential_apply" {
-#   application_object_id = var.fed_cred_object_id
   application_object_id = azuread_application.multiple_env.object_id
   display_name          = "multiple-env-${var.environment}-apply"
   audiences             = [var.tfc_azure_audience]
