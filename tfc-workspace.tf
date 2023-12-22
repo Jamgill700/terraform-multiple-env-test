@@ -27,15 +27,15 @@ data "tfe_project" "tfc_project" {
 # to authenticate to Azure.
 #
 # https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
-# resource "tfe_variable" "enable_azure_provider_auth" {
-#   workspace_id = var.tfe_workspace_id
+resource "tfe_variable" "enable_azure_provider_auth" {
+  workspace_id = var.tfe_workspace_id
 
-#   key      = "TFC_AZURE_PROVIDER_AUTH"
-#   value    = "true"
-#   category = "env"
+  key      = "TFC_AZURE_PROVIDER_AUTH"
+  value    = "true"
+  category = "env"
 
-#   description = "Enable the Workload Identity integration for Azure."
-# }
+  description = "Enable the Workload Identity integration for Azure."
+}
 
 resource "tfe_variable" "tfc_azure_client_id" {
   workspace_id = var.tfe_workspace_id
