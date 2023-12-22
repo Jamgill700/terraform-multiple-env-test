@@ -23,4 +23,3 @@ variable "tfc_workspace_name" {}
 variable "oidc_client_id" {}
 variable "oidc_client_secret" {}
 # variable "TFE_TOKEN" {}
-variable "tfe_workspace_id" {}
