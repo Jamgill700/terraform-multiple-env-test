@@ -16,5 +16,5 @@ resource "azurerm_subnet" "multiple_env" {
   name                 = "${var.environment}-management-zone"
   resource_group_name  = azurerm_resource_group.multiple_env.name
   virtual_network_name = azurerm_virtual_network.multiple_env.name
-  address_prefixes     = ["10.0.2.0/24"]
+  address_prefixes     = ["10.0.1.0/24"]
 }
