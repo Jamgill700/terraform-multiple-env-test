@@ -1,3 +1,5 @@
+data azure_client_config current {}
+
 provider "azurerm" {
 #   skip_provider_registration = false # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
   features {}
@@ -9,7 +11,7 @@ provider "azurerm" {
   # client_secret   = var.oidc_client_secret
 }
 
-data "azuread_application" "app_permissions" {
+data azuread_application app_permissions {
   display_name = "jg-sp-001"
 }
 
